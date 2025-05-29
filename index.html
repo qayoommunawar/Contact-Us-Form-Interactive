@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Contact form</title>
+</head>
+<body>
+
+  <main>
+    <div class="wrapper">
+      <h1 class="form-heading">
+        Contact Us
+      </h1>
+      <form action="#">
+        <div class="name form-field">
+          <div class="first-name flex-form">
+            <label for="first-name">
+              First Name
+              <span class="field-star">*</span>
+            </label>
+            <input type="text" id="first-name" class="input-field" minlength="4" maxlength="12" >
+            <span class="field-error hidden">
+              This field is required
+            </span>
+          </div>
+          <div class="last-name flex-form">
+            <label for="last-name">
+              First Name
+              <span class="field-star">*</span>
+            </label>
+            <input type="text" id="last-name" class="input-field" minlength="4" maxlength="12" >
+            <span class="field-error hidden">
+            This field is required
+          </span>
+          </div>
+        </div>
+        <div class="form-field email">
+          <label for="email">
+            Email Address
+            <span class="field-star">*</span>
+          </label>
+          <input type="email" id="email" class="input-field" maxlength="40" >
+          <span class="field-error hidden">
+            Please enter valid email address
+          </span>
+        </div>
+        <fieldset class="radio-buttons">
+          <legend class="radio-title">
+            Query Type 
+            <span class="field-star">*</span>
+          </legend> 
+          <div class="flex-form">
+            <label class="radio-item ">
+              <input type="radio" name="request-type" id="radio-item" value="General Enquiry" sleceted >
+              <span class="radio-mark"></span>
+              <span class="radio-lable">Gernal Enquiry</span>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="request-type" id="radio-item" value="Support Request" >
+              <span class="radio-mark"></span>
+              <span class="radio-lable">Support Request</span>
+            </label>
+          </div>
+          <span class="field-error hidden">
+            Please select a query type
+          </span>
+        </fieldset>
+        <div class="form-field message">
+          <label for="message">
+            Message
+            <span class="field-star">*</span>
+          </label>
+          <textarea id="message" class="input-field"></textarea>
+          <span class="field-error hidden">
+            This field is required          
+          </span>
+        </div>
+        <div class= "agrrment">
+          <label class="checkbox-item">
+            <input type="checkbox" id="consent">
+            <span class="checkbox-mark"></span>
+              <span class="checkbox-label">I hereby consent to being contacted by the team 
+              <span class="field-star">*</span>
+              
+            </span>
+          </label>
+          <span class="field-error hidden">
+            To submit the form please check the box.
+          </span>
+        </div>
+        <button type="submit" class="btn-submit" aria-label="submit button">Submit</button>
+      </form>
+    </div>
+  </main>
+  
+  <div class="success-message hidden">
+    <h2 class="success-message-heading">
+      <img src="assets/images/icon-success-check.svg" alt="" aria-hidden="true">
+      Message Sent!
+    </h2>
+    <p class="success-message-body">
+      Thanks for completing the form. We will be in touch soon!
+    </p>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

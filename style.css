@@ -1,0 +1,353 @@
+/* Josh Camaue CSS Resets*/
+
+/* ------------------------ */
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+ 
+  
+  body {
+    /* 4. Add accessible line-height */
+    line-height: 1.5;
+    /* 5. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* 6. Improve media defaults */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /* 7. Inherit fonts for form controls */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /* 8. Avoid text overflows */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  /* 9. Improve line wrapping */
+ 
+  
+  /*
+    10. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+/* ------------------------ */
+
+/* CSS Variables for colors and gaps */
+:root{
+    /* Colors are given in hsl from frontendmentors */
+    --color-green-200: hsl(148, 38%, 91%);
+    --color-green-600: hsl(169, 82%, 27%);
+    --color-red-error: hsl(0, 66%, 54%);
+
+    --color-white: hsl(0, 0%, 100%);
+    --color-grey-500: hsl(186, 15%, 59%);
+    --color-gray-900: hsl(187, 24%, 22%);
+
+    /* gaps values are used for margin, paddings as per the requirments */
+
+    --gap-lg: 2rem;
+    --gap-md: 2rem;
+    --gap-sml: 2rem;
+}
+
+/* ------------------------ */
+
+/* Utility Classes: style pattern used more than once in desgin */
+
+.form-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flex-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+input{
+    border: 1px solid var(--color-grey-500);
+    outline: transparent;
+    padding: calc(var(--gap-sml)/4) calc(var(--gap-sml)/2);
+    border-radius: calc(var(--gap-sml)/3);
+    margin-block-end: calc(var(--gap-sml)/3);
+    cursor: pointer;
+}
+
+input:focus{
+    border: 1px solid var(--color-gray-900);
+}
+
+input:hover{
+    border: 1px solid var(--color-green-600);
+}
+
+label{
+    margin-block-end: calc(var(--gap-sml)/3);
+}
+
+.field-error{
+    color: var(--color-red-error);
+    /* margin-block-end: calc(var(--gap-sml)/3); */
+}
+
+.field-star{
+    color: var(--color-green-600);
+}
+/* ------------------------ */
+
+
+/* Designing main clases */
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    min-height: 100vh;
+    padding: calc(var(--gap-sml)/2);
+    background-color: var(--color-green-200);
+    font-family: "karla", sans-serif;
+    font-size: 1rem;
+    
+}
+
+
+.wrapper{
+    width: 100%;
+    max-width: 38rem;
+    margin: 0 auto;
+    padding: calc(var(--gap-sml)/1.5);
+    background-color: var(--color-white);
+    border-radius: calc(var(--gap-sml)/2);
+    position: relative;
+}
+
+h1{
+    margin-block-end: calc(var(--gap-sml)/2);
+}
+
+/* form basic styles */
+
+form{
+    display: grid;
+    gap: calc(var(--gap-sml)/2);
+}
+
+
+/* name field */
+
+form .last-name .field-error{
+    margin: 0;
+}
+
+/* email field */
+
+form .email .field-error{
+    margin: 0;
+}
+
+@media(min-width: 660px){
+  form .name{
+    flex-direction: row;
+    align-items: center;
+    gap: calc(var(--gap-sml)/3);
+}
+
+form .name>*{
+  flex: 1;
+}
+
+/* form .last-name .field-error{
+  margin-block-end: calc(var(--gap-sml)/3);
+} */
+
+
+}
+
+
+/* radio field */
+
+fieldset{
+    border: transparent;
+}
+
+legend{
+    margin-block-end: calc(var(--gap-sml)/3);
+}
+
+input[type='radio']{
+    display: none;
+}
+
+
+.radio-item{
+    padding: calc(var(--gap-sml)/4) calc(var(--gap-sml)/2);
+    border: 1px solid var(--color-grey-500);
+    border-radius: calc(var(--gap-sml)/3);  
+    cursor: pointer;
+    display: flex;
+    gap: calc(var(--gap-sml)/4);
+    align-items: center;
+}
+
+.radio-mark {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--color-green-600); 
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    background-color: white; 
+    transition: all 0.3s ease;
+
+}
+
+.radio-item input[type="radio"]:checked + .radio-mark::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-green-600); 
+
+}
+
+.radio-item:has(input[type="radio"]:checked) {
+    background-color: var(--color-green-200);
+  }
+  
+
+@media(min-width: 660px){
+  .radio-buttons .flex-form{
+    flex-direction: row;
+    gap: calc(var(--gap-sml)/3);
+  }
+
+  .radio-buttons .flex-form>*{
+    flex: 1;
+  }
+
+
+}
+
+
+
+/* text-area */
+textarea{
+    padding: calc(var(--gap-sml)/4) calc(var(--gap-sml)/2);
+    border-radius: calc(var(--gap-sml)/3); 
+    outline: transparent;
+    border: 1px solid var(--color-grey-500);
+    cursor: pointer;
+    height: calc(var(--gap-sml)*5);
+}
+
+textarea:focus{
+    border: 1px solid var(--color-gray-900);
+}
+
+input:hover{
+    border: 1px solid var(--color-green-600);
+}
+
+/* checkbox */
+
+input[type='checkbox'] {
+    display: none;
+  }
+  
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .checkbox-mark {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--color-green-600);
+    border-radius: 4px;
+    position: relative;
+    background: white;
+    transition: all 0.3s ease;
+  }
+  
+  /* Custom check inside the box */
+  input[type="checkbox"]:checked + .checkbox-mark::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    width: 4px;
+    height: 8px;
+    border: solid var(--color-green-600);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  
+  /* Active state */
+  .checkbox-item.active {
+    background-color: var(--color-green-200);
+    border-color: var(--color-green-600);
+  }
+  
+
+button{
+    border: none;
+    background-color: var(--color-green-600);
+    color: var(--color-white);
+    padding: calc(var(--gap-sml)/3);
+    border-radius: calc(var(--gap-sml)/3); 
+    cursor: pointer;
+}
+
+
+/*sucess message */
+.success-message{
+  padding: calc(var(--gap-sml)/2);
+  background-color: var(--color-grey-500);
+  color: var(--color-white);
+  max-width: 20rem;
+  margin: 0 auto;
+  border-radius: calc(var(--gap-sml)/4);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.success-message-heading{
+  display: flex;
+  align-items: center;
+  gap: calc(var(--gap-sml)/4);
+}
+
+.hidden{
+    display: none;
+} 
